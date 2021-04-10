@@ -22,10 +22,15 @@ namespace WitchSaga.Tests
 
             //act
             _deathCalculator = new DeathCalculator(_validatorMock.Object);
-            var result = _deathCalculator.GetAverage(new KilledPerson(10, 12), new KilledPerson(13, 17));
+            var result1 = _deathCalculator.GetAverage(new KilledPerson(10, 12), new KilledPerson(13, 17));
 
             //assert
-            Assert.Equal(4.5, result);
+            Assert.Equal(4.5, result1);
+
+            var result2 = _deathCalculator.GetAverage(new KilledPerson(10, 12), new KilledPerson(13, 16));
+
+            //assert
+            Assert.Equal(3, result2);
 
 
         }
