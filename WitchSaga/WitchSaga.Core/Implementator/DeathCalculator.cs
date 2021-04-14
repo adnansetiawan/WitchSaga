@@ -24,16 +24,21 @@ namespace WitchSaga.Core.Implementator
 
         private int GetNumberOfKilledByYear(int year)
         {
-            if (year == 0)
-                return 1;
-            if (year == 1)
-                return 1;
-            int numberOfKilled = 1;
-            for (int i = 1; i < year; i++)
+            if (year <= 0)
+                return 0;
+
+            int[] fibo = new int[year + 1];
+            fibo[0] = 0; fibo[1] = 1;
+
+            int sum = fibo[0] + fibo[1];
+
+            for (int i = 2; i <= year; i++)
             {
-                numberOfKilled += i;
+                fibo[i] = fibo[i - 1] + fibo[i - 2];
+                sum += fibo[i];
             }
-            return numberOfKilled;
+
+            return sum;
         }
     }
 }

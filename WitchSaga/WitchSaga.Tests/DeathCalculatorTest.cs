@@ -32,6 +32,12 @@ namespace WitchSaga.Tests
             //assert
             Assert.Equal(3, result2);
 
+            var result3 = _deathCalculator.GetAverage(new KilledPerson(10, 12), new KilledPerson(13, 18));
+
+            //assert
+            Assert.Equal(7, result3);
+
+
 
         }
 
